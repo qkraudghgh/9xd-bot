@@ -13,7 +13,7 @@ module.exports = (robot) ->
     location = decodeURIComponent(unescape(msg.match[1]))
     getGeocode(msg, location)
     .then (geoCode) ->
-        getDust(msg, geoCode)
+        getDust(msg, geoCode, location)
     .catch ->
         msg.send '지역 불러오기를 실패하였습니다.'
 
@@ -36,11 +36,10 @@ getGeocode = (msg, location) ->
         deferred.reject(err)
   return deferred.promise
 
-getDust = (msg, geoCode) ->
+getDust = (msg, geoCode, location) ->
   msg.http("http://apis.skplanetx.com/weather/dust?version=#{dust_version}&lat=#{geoCode.lat}&lon=#{geoCode.lng}&appKey=#{dust_api_key}")
     .get() (err, res, body) ->
       response = JSON.parse(body)
-      location = response.weather.dust[0].station.name
       pm = response.weather.dust[0].pm10.value
       grade = response.weather.dust[0].pm10.grade
       time = moment().format('MM월 DD일 HH시')

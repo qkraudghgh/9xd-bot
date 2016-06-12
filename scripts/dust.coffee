@@ -1,7 +1,7 @@
 # require
 http = require 'http'
 moment = require 'moment'
-q = require 'Q'
+q = require 'q'
 config = require '../config.json'
 
 # define constant

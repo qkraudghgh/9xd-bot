@@ -9,7 +9,7 @@ dust_api_key = config.dust.key
 dust_version = config.dust.version
 
 module.exports = (robot) ->
-  robot.respond /미세먼지 (.*)/i, (msg) ->
+  robot.respond /미세먼지 (.*)$/i, (msg) ->
     location = decodeURIComponent(unescape(msg.match[1]))
     getGeocode(msg, location)
     .then (geoCode) ->

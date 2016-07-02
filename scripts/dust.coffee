@@ -1,7 +1,7 @@
 # require
 http = require 'http'
 moment = require 'moment'
-q = require 'Q'
+q = require 'q'
 config = require '../config.json'
 
 # define constant
@@ -9,7 +9,7 @@ dust_api_key = config.dust.key
 dust_version = config.dust.version
 
 module.exports = (robot) ->
-  robot.respond /미세먼지 (.*)/i, (msg) ->
+  robot.respond /미세먼지 (.*)$/i, (msg) ->
     location = decodeURIComponent(unescape(msg.match[1]))
     getGeocode(msg, location)
     .then (geoCode) ->
@@ -42,5 +42,5 @@ getDust = (msg, geoCode, location) ->
       response = JSON.parse(body)
       pm = response.weather.dust[0].pm10.value
       grade = response.weather.dust[0].pm10.grade
-      time = moment().format('MM월 DD일 HH시')
+      time = moment().add(9, 'h').format('MM월 DD일 HH시')
       msg.send "현재시각 #{time} #{location}의 미세먼지 농도(pm10)은 #{pm}이며 현재 대기상황 #{grade}입니다."

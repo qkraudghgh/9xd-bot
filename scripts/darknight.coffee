@@ -6,7 +6,7 @@ cronJob = require('cron').CronJob
 
 module.exports = (robot) ->
   cronJob = require('cron').CronJob
-    new cronJob('0 */1 * * * *', wakeUpDarkNight(robot), null, true)
+  new cronJob('0 */1 * * * *', wakeUpDarknight(robot), null, true)
 
 wakeUpDarknight = (robot) ->
-    robot.messageRoom '#darknight' '아침이 밝아옵니다'
+  ->  robot.messageRoom '#darknight', '아침이 밝아옵니다'

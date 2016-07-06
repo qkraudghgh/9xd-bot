@@ -10,6 +10,5 @@
   "hubot-rules",
   "hubot-shipit",
   "hubot-eval-js",
-  "hubot-qr",
-  "hubot-firebase-brain"
+  "hubot-qr"
   ]

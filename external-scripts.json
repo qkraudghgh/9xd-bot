@@ -10,5 +10,9 @@
   "hubot-rules",
   "hubot-shipit",
   "hubot-eval-js",
+<<<<<<< HEAD
   "hubot-qr"
+=======
+  "hubot-qr",
+>>>>>>> c92c31944c75d73e6d315a61532ff6e7f28a9d45
   ]

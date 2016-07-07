@@ -3,10 +3,9 @@ FirebaseTokenGenerator = require 'firebase-token-generator'
 
 FIREBASE_URL = "https://9xd-bot.firebaseio.com/brain"
 FIREBASE_SECRET = "b1z9KEjv9ts33CN29eDJflET97EkV0KTSnmvpjlA"
-responses = ['먹어라', '이(나)먹자', '먹어', '<-', '이(가) 최고지']
 
 module.exports = (robot) ->
-  if FIREBASE_URL?
+  if FIREBASE_URL?                  # 제일 우선 실행시키는 방법 알아보기 (스크립트 빼는법)
     fb = new Firebase(FIREBASE_URL)
 
     if FIREBASE_SECRET?
@@ -31,7 +30,7 @@ getData = (msg, fb) ->
     index = Math.floor(Math.random() * objectKeys.length)
     data.forEach (data) ->
       if(data.key() == objectKeys[index])
-        msg.send "#{data.val()} #{responses[Math.floor(Math.random() * responses.length)]}"
+        msg.send "#{data.val()}"  #덧붙이는 말은 일단 제외..
 
 saveData = (msg, fb, data) ->
   fb.push(data).then ->

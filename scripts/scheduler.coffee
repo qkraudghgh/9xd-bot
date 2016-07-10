@@ -3,38 +3,26 @@ FirebaseUtil = require './firebase-util'
 module.exports = (robot) ->
   fb = new FirebaseUtil(robot, "schedules")
   #메모저장
-  robot.respond /메모(.*) (.*)/i, (msg) ->
+  robot.respond /메모\s*(저장|기록|세이브|넣기|추가) (.*)/i, (msg) ->
     userName = msg.message.user.name
-    memoType = msg.match[1].replace(/\s+/g, '')
-    memo = msg.match[2].replace(/\s+/g, '')
-
-    if memoType in ['저장', '기록', '세이브', '넣기' ,'추가']
-      saveData(userName, msg,  memo)
+    memo= msg.match[2]
+    saveData(userName, msg,  memo)
 
   #메모출력
-  robot.respond /메모(.*)/i, (msg) ->
+  robot.respond /메모\s*(출력|보여줘|좀\s*보자|보기|리스트)/i, (msg) ->
     userName = msg.message.user.name
-    memoType = msg.match[1].replace(/\s+/g, '')
-
-    if memoType in ['출력', '보여줘', '좀 보자', '보기', '리스트']
-      getData(userName, msg)
+    getData(userName, msg)
 
   #메모전체제거
-  robot.respond /메모(.*)/i, (msg) ->
+  robot.respond /메모 전체삭제실행/i, (msg) ->
     userName = msg.message.user.name
-    memoType = msg.match[1].replace(/\s+/g, '')
-
-    if memoType in ['전체삭제실행']
-      removeAllData(userName, msg)
+    removeAllData(userName, msg)
 
   #메모 하나 제거
-  robot.respond /메모(.*) (.*)/i, (msg) ->
+  robot.respond /메모\s*(제거|삭제|지우기|지워줘) (\d+)/i, (msg) ->
     userName = msg.message.user.name
-    memoType = msg.match[1].replace(/\s+/g, '')
-    memoIndex = msg.match[2].replace(/\s+/g, '')
-
-    if memoType in ['제거', '석제', '지우기', '지워줘']
-      removeData(userName, msg,  memoIndex)
+    memoIndex = msg.match[2]
+    removeData(userName, msg,  memoIndex)
 
   getData = (userName, msg) ->
     fb.child(userName).once "value", (data) ->

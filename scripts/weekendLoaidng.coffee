@@ -7,7 +7,7 @@ week = day * 7
 onWeek = day * 5
 
 module.exports = (robot) ->
-  robot.respond /주말[\s]{0,}로딩|월요일[\s]{0,}로딩|$/i, (msg) ->
+  robot.respond /주말[\s]{0,}로딩|월요일[\s]{0,}로딩/i, (msg) ->
     messageSend(msg)
 
 # 주말까지 or 주말이 몇 %가 남았는지 계산

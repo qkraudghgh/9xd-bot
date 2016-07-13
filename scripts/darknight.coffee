@@ -8,9 +8,10 @@
 cronJob = require('cron').CronJob
 
 module.exports = (robot) ->
-  darknightJob = new cronJob('0 0 23 * * *', wakeUpDarknight(robot), null, true, "Asia/Seoul")
-  generalJob = new cronJob('0 0 7 * * *', wakeUpGeneral(robot), null, true, "Asia/Seoul")
-
+  darknightJob = new cronJob('3 * * * * *', wakeUpDarknight(robot), null, true, "Asia/Seoul")
+  generalJob = new cronJob('5 * * * * *', wakeUpGeneral(robot), null, true, "Asia/Seoul")
+  darknightJob.start()
+  generalJob.start()
 # 오후 11시에 WakeUpDarkNight 호출
 wakeUpDarknight = (robot) ->
   -> robot.messageRoom '#_general', '자 이제 모두 <#C1CJNKQGZ|darknight>로 이동해주세요!'

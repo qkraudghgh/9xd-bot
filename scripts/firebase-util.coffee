@@ -13,7 +13,7 @@ module.exports = (robot, ref) ->
 
     if FIREBASE_SECRET?
       tokenGenerator = new FirebaseTokenGenerator FIREBASE_SECRET
-      token = tokenGenerator.createToken({ "uid": "hubot", "hubot": true });
+      token = tokenGenerator.createToken({ "uid": "hubot", "hubot": true })
       fb.authWithCustomToken token, (error, authData) ->
         if error
           robot.logger.warning '인증실패', error

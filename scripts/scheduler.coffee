@@ -3,15 +3,27 @@ FirebaseUtil = require './firebase-util'
 module.exports = (robot) ->
   fb = new FirebaseUtil(robot, "schedules")
   #메모저장
-  robot.respond /메모\s*(저장|기록|세이브|넣기|추가) (.*)/i, (msg) ->
+  robot.respond /메모\s*(저장|기록|세이브|넣기|추가) (.*)$/i, (msg) ->
     userName = msg.message.user.name
     memo= msg.match[2]
-    saveData(userName, msg,  memo)
+    if msg.match[0].search('in') == -1
+      saveData(userName, msg,  memo)
+
+  #메모 공용메모 저장
+  robot.respond /메모\s*(저장|기록|세이브|넣기|추가) in(.+) (.+)/i, (msg) ->
+    dir = msg.match[2].replace(/\s/gi, '');
+    memo = msg.match[3]
+    saveCommonData(dir, msg,  memo)
 
   #메모출력
-  robot.respond /메모\s*(출력|보여줘|좀\s*보자|보기|리스트)/i, (msg) ->
+  robot.respond /메모\s*(출력|보여줘|좀\s*보자|보기|리스트)$/i, (msg) ->
     userName = msg.message.user.name
     getData(userName, msg)
+
+  #메모 공용메모 출력
+  robot.respond /메모\s*(출력|보여줘|좀\s*보자|보기|리스트) (.*)/i, (msg) ->
+    dir = msg.match[2]
+    getCommonData(dir, msg)
 
   #메모전체제거
   robot.respond /메모 전체삭제실행/i, (msg) ->
@@ -25,7 +37,18 @@ module.exports = (robot) ->
     removeData(userName, msg,  memoIndex)
 
   getData = (userName, msg) ->
+    msg.send userName + "출력"
     fb.child(userName).once "value", (data) ->
+      if data.val()?
+        i = 1;
+        data.forEach (data) ->
+          msg.send "#{i++} - #{data.val()}"  # 리스트에 담아서 해야하나?
+      else
+        msg.send "메모가 없다!"
+
+  getCommonData = (dir, msg) ->
+    msg.send dir + "출력"
+    fb.child('cm_' + dir).once "value", (data) ->
       if data.val()?
         i = 1;
         data.forEach (data) ->
@@ -36,6 +59,10 @@ module.exports = (robot) ->
   saveData = (userName, msg, memo) ->
     fb.child(userName).push(memo).then ->
       msg.send "메모 #{memo} 추가 완료!"
+
+  saveCommonData = (dir, msg, memo) ->
+    fb.child('cm_' + dir).push(memo).then ->
+      msg.send "공용메모 #{memo} in #{dir} 추가 완료!"
 
 
   removeData = (userName, msg, memoIndex) ->

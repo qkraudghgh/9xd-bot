@@ -10,8 +10,8 @@ module.exports = (robot) ->
       saveData(userName, msg,  memo)
 
   #메모 공용메모 저장
-  robot.respond /메모\s*(저장|기록|세이브|넣기|추가) in(.+) (.+)/i, (msg) ->
-    dir = msg.match[2].replace(/\s/gi, '');
+  robot.respond /메모\s*(저장|기록|세이브|넣기|추가) in(.*) to (.*)$/i, (msg) ->
+    dir = msg.match[2].replace(/\s/gi, '')
     memo = msg.match[3]
     saveCommonData(dir, msg,  memo)
 

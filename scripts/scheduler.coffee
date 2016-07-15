@@ -4,7 +4,7 @@ module.exports = (robot) ->
   fb = new FirebaseUtil(robot, "schedules")
   #메모저장
   robot.respond /메모\s*(저장|기록|세이브|넣기|추가) (.*)$/i, (msg) ->
-    userName = msg.message.user.name
+    userName = msg.message.user.name.replace /\./g, "_"
     memo= msg.match[2]
     if msg.match[0].search('in') == -1
       saveData(userName, msg,  memo)
@@ -17,7 +17,7 @@ module.exports = (robot) ->
 
   #메모출력
   robot.respond /메모\s*(출력|보여줘|좀\s*보자|보기|리스트)$/i, (msg) ->
-    userName = msg.message.user.name
+    userName = msg.message.user.name.replace /\./g, "_"
     getData(userName, msg)
 
   #메모 공용메모 출력

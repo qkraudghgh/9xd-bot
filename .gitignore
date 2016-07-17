@@ -1,7 +1,7 @@
 node_modules
 .DS_Store*
 .hubot_history
-9xd-bots.iml
+*.iml
 
 .idea/.name
 

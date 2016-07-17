@@ -13,4 +13,9 @@ README 수정도 환영입니다!
 -[9XD Slack](https://9xdevgroup.slack.com/)
 
 단순히 재미로 만들었습니다. 공식으로 운영을 허락맡거나 하지 않았습니다.
+
 문의사항은 qkraudghgh@gmail.com으로 부탁드립니다.
+
+# LICENSE
+
+[Beerware](https://en.wikipedia.org/wiki/Beerware) License

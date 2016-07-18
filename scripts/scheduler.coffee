@@ -4,10 +4,9 @@ module.exports = (robot) ->
   fb = new FirebaseUtil(robot, "schedules")
   #메모저장
   robot.hear /메모\s*(저장|기록|세이브|넣기|추가)! (.*)$/i, (msg) ->
-    userName = msg.message.user.name.replace /\./g, "_"
     memo= msg.match[2]
     if msg.match[0].search('in') == -1
-      saveData(userName, msg,  memo)
+      saveData(getUserName(msg), msg,  memo)
 
   #메모 공용메모 저장
   robot.hear /메모\s*(저장|기록|세이브|넣기|추가)! in(.*) to (.*)$/i, (msg) ->
@@ -17,8 +16,7 @@ module.exports = (robot) ->
 
   #메모출력
   robot.hear /메모\s*(출력|보여줘|좀\s*보자|보기|리스트)!$/i, (msg) ->
-    userName = msg.message.user.name.replace /\./g, "_"
-    getData(userName, msg)
+    getData(getUserName(msg), msg)
 
   #메모 공용메모 출력
   robot.hear /메모\s*(출력|보여줘|좀\s*보자|보기|리스트)! (.*)/i, (msg) ->
@@ -27,14 +25,12 @@ module.exports = (robot) ->
 
   #메모전체제거
   robot.hear /메모 전체삭제실행/i, (msg) ->
-    userName = msg.message.user.name
-    removeAllData(userName, msg)
+    removeAllData(getUserName(msg), msg)
 
   #메모 하나 제거
   robot.hear /메모\s*(제거|삭제|지우기|지워줘) (\d+)/i, (msg) ->
-    userName = msg.message.user.name
     memoIndex = msg.match[2]
-    removeData(userName, msg,  memoIndex)
+    removeData(getUserName(msg), msg,  memoIndex)
 
   getData = (userName, msg) ->
     msg.send userName + "출력"
@@ -77,3 +73,6 @@ module.exports = (robot) ->
       if data.val()?
         fb.child(userName).set null
         msg.send "모든 메모 삭제 완료! (복구안됨!)"
+
+  getUserName = (msg) ->
+    msg.message.user.name.replace /\./g, "_"

@@ -1,8 +1,9 @@
 
 module.exports = (robot) ->
   robot.hear /(류승룡|겐지)/i, (res) ->
-    if res.message.user.room is 'overwatch'
-      robot.messageRoom "#overwatch", "류승룡기모찌!"
+    #if res.message.user.room is 'overwatch'
+    # robot.messageRoom "#overwatch", "류승룡기모찌!"
+    res.send res.message.user.room
 
   robot.hear /(리퍼)/i, (res) ->
     if res.message.user.room is 'overwatch'

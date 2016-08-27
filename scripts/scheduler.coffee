@@ -76,11 +76,11 @@ module.exports = (robot) ->
 
   saveData = (userName, msg, memo) ->
     fb.child(userName).push(memo).then ->
-      msg.send "메모 #{memo} 추가 완료!"
+      msg.send "메모 `#{memo}` 추가 완료!"
 
   saveCommonData = (dir, msg, memo) ->
     fb.child('cm_' + dir).push(memo).then ->
-      msg.send "공용메모 #{memo} in #{dir} 추가 완료!"
+      msg.send "공용메모 `#{memo}` in `#{dir}` 추가 완료!"
 
 
   removeData = (userName, msg, memoIndex) ->
@@ -88,7 +88,7 @@ module.exports = (robot) ->
       if data.val()?
         objectKeys = Object.keys(data.val())
         fb.child(userName + '/' + objectKeys[memoIndex-1]).set null
-        msg.send "#{memoIndex}번 메모 삭제 완료!"
+        msg.send "`#{memoIndex}`번 메모 삭제 완료!"
 
   removeAllData = (userName, msg) ->
     fb.child(userName).once "value", (data) ->

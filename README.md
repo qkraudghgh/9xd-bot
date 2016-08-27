@@ -1,3 +1,5 @@
+![travis CI](https://api.travis-ci.org/qkraudghgh/9xd-bot.png)
+
 # 9xd
 
 9XD는 9X년대 개발자 모임입니다.

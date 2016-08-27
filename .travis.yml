@@ -1,7 +1,14 @@
 language: node_js
 node_js:
-      - "6"
-      - "6.1"
-      - "5.11"
-      - "0.6"
-      - "iojs"
+- '6'
+- '6.1'
+- '5.11'
+- '0.6'
+- iojs
+deploy:
+  provider: heroku
+  api_key:
+    secure: IcFl65kkXXo4SibbN4CDi3b2TFtpZI0C72OS0vd0qLi9h0hNX3/yjUOBK0bP/F+JpI9WxIGA3A3CBFKpO9W7fRpxn/IDtw+j0M9mCIbaMZfkddM/C49KLDOiAiJgo+5oN5RkrJOi5ZU+coCk32AkksCKlqdiRPIw4GF8j083fPEtgwxshRHSWurZvtJQry8WGx4fnUj1xGLdj4vZ0pZwZcPRrfljCp6sDaUfkaMM7muotOgMwwCfD9swbhOduFZCbeddKWpF02gUP9qkOj194/XFoVa4MuzarD3rZYrSh5wLF5nO5IaajvNAMFqPqHmMOFbl0y9D7PEMCPksBsw65DIj0z5S6hTUvyCu8EqE8b9VlhL/agR7SsIsRMz/uqd8iLVcMgcPPvbKZ7ozGbmpuLaVEF+czkwagMWiDgeMCiF1g1FO1EuUNqvjCW4i1UU2IrW3ccOcV77ZArpFU7+5yhQGGKebT2iqwT/MREXrbqrIKfXFR9c6YWxL4FT/gY8foAwNWpHr6mo40dGXNM2gPy9FtxoisgHpWyP/WfFtbmJ1017/E5qyuy/6C57VQLr/xiMfi7nCmKOiDOoiQOCm7E/sa7bHkaL7HWMnveaggLsgkXJp+WJD3CvnUJ6CI43z3vMamMsaqRNS796XTUMxMxBUXdGA9FqmepBK2JfVIno=
+  app: 9xd-bot
+  on:
+    repo: qkraudghgh/9xd-bot

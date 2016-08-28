@@ -1,4 +1,5 @@
 ![travis CI](https://api.travis-ci.org/qkraudghgh/9xd-bot.png)
+[![Coverage Status](https://coveralls.io/repos/github/qkraudghgh/9xd-bot/badge.svg?branch=master)](https://coveralls.io/github/qkraudghgh/9xd-bot?branch=master)
 
 # 9xd
 

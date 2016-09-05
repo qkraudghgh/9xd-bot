@@ -11,7 +11,7 @@ module.exports = (robot) ->
   darknightJob = new cronJob('0 0 23 * * *', wakeUpDarknight(robot), null, true, "Asia/Seoul")
 #  generalJob = new cronJob('0 0 7 * * *', wakeUpGeneral(robot), null, true, "Asia/Seoul")
   darknightJob.start()
-  generalJob.start()
+#  generalJob.start()
 
 # 오후 11시에 WakeUpDarkNight 호출
 wakeUpDarknight = (robot) ->

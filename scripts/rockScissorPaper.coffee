@@ -31,7 +31,7 @@ module.exports = (robot) ->
           if user_choice in scissors
             bot_match_status = -1
           else
-            bot_match_status = 0
+            bot_match_status = 1
 
     if bot_match_status == 1
       response = "[9xd 승리] : (#{username}, #{user_choice}) vs (9xd, #{bot_choice})"

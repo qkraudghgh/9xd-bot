@@ -12,7 +12,7 @@ module.exports = (robot) ->
             count++
           else
             break
-        if count == 20
+        if count >= 20
           robot.messageRoom '#_general', '지진!!!!!!!!!!'
       return
     return

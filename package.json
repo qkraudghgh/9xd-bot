@@ -5,7 +5,11 @@
   "author": "9xd",
   "description": "9xd-bot",
   "dependencies": {
+    "cheerio": "^0.22.0",
+    "coffee-script": "^1.10.0",
     "cron": "1.1.0",
+    "firebase": "^2.2.7",
+    "firebase-token-generator": "^2.0.0",
     "hubot": "^2.19.0",
     "hubot-diagnostics": "0.0.1",
     "hubot-eval-js": "^1.0.11",
@@ -21,9 +25,6 @@
     "hubot-scripts": "^2.17.2",
     "hubot-shipit": "^0.2.0",
     "hubot-slack": "^3.4.2",
-    "firebase": "^2.2.7",
-    "firebase-token-generator": "^2.0.0",
-    "coffee-script": "^1.10.0",
     "moment": "^2.13.0",
     "q": "^1.4.1"
   },

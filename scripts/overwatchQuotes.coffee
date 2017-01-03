@@ -49,7 +49,7 @@ module.exports = (robot) ->
 
   robot.hear /한조/i, (res) ->
     if res.message.user.room is 'overwatch'
-      robot.messageRoom "#overwatch", "류가 와가떼끼오 꾸레!"
+      robot.messageRoom "#overwatch", "류요 와가떼끼오 꾸레!"
 
   robot.hear /(디바|DVa|D.Va|송하나)/i, (res) ->
     if res.message.user.room is 'overwatch'

@@ -43,4 +43,4 @@ getDust = (msg, geoCode, location) ->
       pm = response.weather.dust[0].pm10.value
       grade = response.weather.dust[0].pm10.grade
       time = moment().add(9, 'h').format('MM월 DD일 HH시')
-      msg.send "현재시각 #{time} #{location}의 미세먼지 농도(pm10)은 #{pm}이며 현재 대기상황 #{grade}입니다."
+      msg.send "현재시각 #{time} #{location}의 미세먼지 농도(pm10)은 `#{pm}`이며 현재 대기상황 `#{grade}`입니다."

@@ -13,7 +13,7 @@ module.exports = (robot) ->
 
   robot.hear /(맥|멕|메|매)크리/i, (res) ->
     if res.message.user.room is 'overwatch'
-      robot.messageRoom "#overwatch", "석양이 진다.."
+      robot.messageRoom "#overwatch", "석양이 진다..."
 
   robot.hear /(솔(저|져)|김병장)/i, (res) ->
     if res.message.user.room is 'overwatch'
@@ -25,17 +25,17 @@ module.exports = (robot) ->
 
   robot.hear /파라/i, (res) ->
     if res.message.user.room is 'overwatch'
-      robot.messageRoom "#overwatch", "하늘에서 정의가--으어엌!"
+      robot.messageRoom "#overwatch", "하늘에서 정의가 빗발친다!"
 
   robot.hear /메이(?!커)/i, (res) ->
     if res.message.user.room is 'overwatch'
-      robot.messageRoom "#overwatch", "개인적인 악감정은 없어요!"
+      robot.messageRoom "#overwatch", "꼼짝 마! 움직이지 마세요!"
 
   robot.hear /(바스|바스티온)/i, (res) ->
     if res.message.user.room is 'overwatch'
       robot.messageRoom "#overwatch", "`쀼쀼삐 쀼삐!`"
 
-  robot.hear /(위도|위메)/i, (res) ->
+  robot.hear /위(도우|메|도우메이커)/i, (res) ->
     if res.message.user.room is 'overwatch'
       robot.messageRoom "#overwatch", "아무도 내게서 숨지 못해.."
 
@@ -45,7 +45,7 @@ module.exports = (robot) ->
 
   robot.hear /토르비욘/i, (res) ->
     if res.message.user.room is 'overwatch'
-      robot.messageRoom "#overwatch", "*용 광 로 ! ! !*"
+      robot.messageRoom "#overwatch", "*초 고 열 용 광 로 ! ! !*"
 
   robot.hear /한조/i, (res) ->
     if res.message.user.room is 'overwatch'
@@ -53,7 +53,7 @@ module.exports = (robot) ->
 
   robot.hear /(디바|DVa|D.Va|송하나)/i, (res) ->
     if res.message.user.room is 'overwatch'
-      robot.messageRoom "#overwatch", "게임을 하면 이겨야지!"
+      robot.messageRoom "#overwatch", "이것도 너프해 보시지!"
 
   robot.hear /(라인|라인하르트)/i, (res) ->
     if res.message.user.room is 'overwatch'
@@ -65,15 +65,15 @@ module.exports = (robot) ->
 
   robot.hear /(윈스턴|고릴라)/i, (res) ->
     if res.message.user.room is 'overwatch'
-      robot.messageRoom "#overwatch", "아뇨, 바나나는 필요 없습니다."
+      robot.messageRoom "#overwatch", "화가 납니다!"
 
   robot.hear /자리야/i, (res) ->
     if res.message.user.room is 'overwatch'
-      robot.messageRoom "#overwatch", "함께일 때, 우린 강합니다!"
+      robot.messageRoom "#overwatch", "*아돈 빠가돈!*"
 
   robot.hear /루시우/i, (res) ->
     if res.message.user.room is 'overwatch'
-      robot.messageRoom "#overwatch", "씐나게 놀아보자!"
+      robot.messageRoom "#overwatch", "오우! 씐나게 놀아보자!"
 
   robot.hear /(메르시|메르띠)/i, (res) ->
     if res.message.user.room is 'overwatch'
@@ -81,8 +81,16 @@ module.exports = (robot) ->
 
   robot.hear /(시메트라|아름이)/i, (res) ->
     if res.message.user.room is 'overwatch'
-      robot.messageRoom "#overwatch", "인류의 진정한 적은 무질서예요."
+      robot.messageRoom "#overwatch", "순간이동기 가동. 빠르게 움직여요!"
 
   robot.hear /젠야(타|따)/i, (res) ->
     if res.message.user.room is 'overwatch'
-      robot.messageRoom "#overwatch", "진정한 자아엔 형체가 없는 법."
+      robot.messageRoom "#overwatch", "눈동자로 들어가시오."
+
+  robot.hear /아나/i, (res) ->
+    if res.message.user.room is 'overwatch'
+      robot.messageRoom "#overwatch", "넌 강해졌다. 돌격해!"
+
+  robot.hear /솜브라/i, (res) ->
+    if res.message.user.room is 'overwatch'
+      robot.messageRoom "#overwatch", "아빠간도 라스 루세스!"

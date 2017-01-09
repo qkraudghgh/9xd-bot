@@ -73,7 +73,7 @@ module.exports = (robot) ->
 
   robot.hear /루시우/i, (res) ->
     if res.message.user.room is 'overwatch'
-      robot.messageRoom "#overwatch", "씐나게 놀아보자!"
+      robot.messageRoom "#overwatch", "*오우!* 씐나게 놀아보자!"
 
   robot.hear /(메르시|메르띠)/i, (res) ->
     if res.message.user.room is 'overwatch'

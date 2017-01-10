@@ -100,13 +100,14 @@ module.exports = (robot) ->
     msg.message.user.name.replace /\./g, "_"
 
   # 등록 된 오픈소스의 타이틀 감지
-  robot.hear /.*/, (msg) ->
+  robot.hear /(?:오픈소스|오소|OSS)\s+(.*)/, (msg) ->
     fb.child('cm_오픈소스').once "value", (data) ->
+      argTitle = msg.match[1]
+      console.log argTitle
       if data.val()?
         data.forEach (data) ->
           memo = data.val()
           try
             title = (/\[(.+?)\]/).exec(memo)[1]
-            matched = new RegExp(title, 'gi').test msg.message.text
-            if matched is true?
+            if title.toUpperCase() is argTitle.toUpperCase()
               msg.send memo

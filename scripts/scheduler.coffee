@@ -98,3 +98,15 @@ module.exports = (robot) ->
 
   getUserName = (msg) ->
     msg.message.user.name.replace /\./g, "_"
+
+  # 등록 된 오픈소스의 타이틀 감지
+  robot.hear /.*/, (msg) ->
+    fb.child('cm_오픈소스').once "value", (data) ->
+      if data.val()?
+        data.forEach (data) ->
+          memo = data.val()
+          try
+            title = (/\[(.+?)\]/).exec(memo)[1]
+            matched = new RegExp(title, 'gi').test msg.message.text
+            if matched is true?
+              msg.send memo

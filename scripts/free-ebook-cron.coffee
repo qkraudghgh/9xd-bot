@@ -1,5 +1,5 @@
 # Description
-#    한국시간(KST) 기준 오전 8시 30분이 되면 Packtpub의 오늘의 무료책을 알려준다.
+#    한국시간(KST) 기준 오전 9시 30분이 되면 Packtpub의 오늘의 무료책을 알려준다.
 #    (https://www.packtpub.com/packt/offers/free-learning)
 #
 # Dependencies:

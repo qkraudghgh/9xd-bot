@@ -6,10 +6,9 @@ config = require '../config.json'
 
 # define constant
 dust_api_key = config.dust.key
-dust_version = config.dust.version
 
 module.exports = (robot) ->
-  robot.respond /미세먼지 (.*)$/i, (msg) ->
+  robot.respond /(.*) 대기오염도!/i, (msg) ->
     location = decodeURIComponent(unescape(msg.match[1]))
     getGeocode(msg, location)
     .then (geoCode) ->
@@ -26,10 +25,11 @@ getGeocode = (msg, location) ->
     })
     .get() (err, res, body) ->
       response = JSON.parse(body)
+      geo = response.results[0].geometry.location
       if response.status is "OK"
         geoCode = {
-          lat : response.results[0].geometry.location.lat
-          lng : response.results[0].geometry.location.lng
+          lat : geo.lat
+          lng : geo.lng
         }
         deferred.resolve(geoCode)
       else
@@ -37,10 +37,21 @@ getGeocode = (msg, location) ->
   return deferred.promise
 
 getDust = (msg, geoCode, location) ->
-  msg.http("http://apis.skplanetx.com/weather/dust?version=#{dust_version}&lat=#{geoCode.lat}&lon=#{geoCode.lng}&appKey=#{dust_api_key}")
+  msg.http("https://api.waqi.info/feed/geo:#{geoCode.lat};#{geoCode.lng}/?token=#{dust_api_key}")
     .get() (err, res, body) ->
-      response = JSON.parse(body)
-      pm = response.weather.dust[0].pm10.value
-      grade = response.weather.dust[0].pm10.grade
+      data = JSON.parse(body).data
+      aqi = data.aqi
+      if aqi < 50
+        grade = "좋음"
+      else if 51 < aqi and aqi < 100
+        grade = "보통"
+      else if 101 < aqi and aqi < 150
+        grade = "민감군영향"
+      else if 151 < aqi and aqi < 200
+        grade = "나쁨"
+      else if 201 < aqi and aqi < 300
+        grade = "매우 나쁨"
+      else if aqi > 300
+        grade = "위험"
       time = moment().add(9, 'h').format('MM월 DD일 HH시')
-      msg.send "현재시각 #{time} #{location}의 미세먼지 농도(pm10)은 `#{pm}`이며 현재 대기상황 `#{grade}`입니다."
+      msg.send "현재시각 #{time} #{location}의 대기 품질 지수(AQI)는 `#{aqi}`이며 현재 대기상황 `#{grade}`입니다."

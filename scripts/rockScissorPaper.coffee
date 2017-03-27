@@ -1,3 +1,9 @@
+# Description
+#   가위바위보 게임
+#
+# Commands:
+#   갈바 <가위|바위|보|묵|찌|빠> - 9xd와 가위바위보를 할 수 있습니다.
+
 module.exports = (robot) ->
   robot.hear /갈바 (가위|바위|보|묵|찌|빠|)$/i, (msg) ->
     choices = ['가위', '바위', '보']

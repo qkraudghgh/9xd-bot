@@ -2,7 +2,7 @@
 #   Firebase를 통해 메모를 기록하고 저장하고 삭제할 수 있다.
 #
 # Dependencies:
-#  "firebase-util"
+#   "firebase-util"
 #
 # Commands:
 #   메모추가! <메모할 내용> - 개인메모장으로 나만이 메모를 저장할 수 있다.

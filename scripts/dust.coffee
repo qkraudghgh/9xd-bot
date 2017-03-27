@@ -1,3 +1,17 @@
+# Description
+#   API를 통해 대기오염도를 알려준다.
+#
+# Dependencies:
+#   "http"
+#   "moment"
+#   "q"
+#
+# Commands:
+#   9xd <지역> 대기오염도! - 원하는 지역의 대기오염도를 알려줍니다.
+#
+# Author:
+#   myoungho.pak and jelly
+
 # require
 http = require 'http'
 moment = require 'moment'

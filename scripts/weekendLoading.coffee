@@ -1,4 +1,15 @@
-# created by myoungho.pak and jelly
+# Description
+#   주말 혹은 월요일까지 얼마나 남았는 지를 네모로 알려준다.
+#
+# Dependencies:
+#   "moment"
+#
+# Commands:
+#   주말로딩 or 월요일로딩 - 주말 혹은 월요일까지 얼마나 남았는 지를 그림으로 알려준다.
+#
+# Author:
+#   myoungho.pak and jelly
+
 moment = require 'moment'
 
 # 날짜 init
@@ -30,6 +41,5 @@ makeBlock = (percent, isWeekendDay) ->
 messageSend = (msg) ->
   nowTime = moment().add(3, 'd').add(9, 'h') #1970년 1월 1일은 목요일이었음...
   remainTime = nowTime % week
-  isWeekendDay = if remainTime > onWeek then true else false # 엄청난 커피다
+  isWeekendDay = if remainTime > onWeek then true else false
   msg.send makeBlock(calculatePercent(remainTime, isWeekendDay).toFixed(2), isWeekendDay) + ' ' +calculatePercent(remainTime, isWeekendDay).toFixed(2) + '%'
-

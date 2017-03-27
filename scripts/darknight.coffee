@@ -1,9 +1,10 @@
-# author : jelly, hunJ, myounghoPak
 # Dependency:
-#    - cron
+#   "cron"
 # Description:
-# 한국시간 (KST) 기준 23시가 되면 #_general 에 #darknight 로 이동하러는 메세지를 출력한다.
+#   한국시간 (KST) 기준 23시가 되면 #_general 에 #darknight 로 이동하러는 메세지를 출력한다.
 #                     07시가 되면 #darknight 에 #_general 로 이동하라는 메세지를 출력한다.
+# Author:
+#   jelly, hunJ, myoungho.pak
 
 cronJob = require('cron').CronJob
 

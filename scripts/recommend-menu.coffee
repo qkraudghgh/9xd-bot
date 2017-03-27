@@ -2,7 +2,7 @@
 #   Firebase를 이용해 메뉴를 추가하고 메뉴를 추천받을 수 있다.
 #
 # Dependencies:
-#  "./firebase-util"
+#   "./firebase-util"
 #
 # Commands:
 #   메뉴추가! <메뉴이름> - 메뉴를 추가할 수 있으며, 메뉴이름을 '김치볶음밥 먹어봐' 형식으로 작성하면 더욱 좋다.

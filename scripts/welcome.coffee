@@ -1,3 +1,6 @@
+# Description
+#   새로운 사람이 슬랙에 들어오면 인사를 한다.
+
 module.exports = (robot) ->
   robot.enter (res) ->
     if res.message.user.room is '_general'

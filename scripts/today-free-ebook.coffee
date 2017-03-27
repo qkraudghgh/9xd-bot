@@ -2,14 +2,14 @@
 #   Packtpub의 오늘의 무료책을 확인한다. (https://www.packtpub.com/packt/offers/free-learning)
 #
 # Dependencies:
-#  "cheerio"
-#  "http"
+#   "cheerio"
+#   "http"
 #
 # Commands:
-#   오늘의무료책! or 무료책!
+#   오늘의무료책 or 무료책! - 오늘의 Packtpub의 무료책을 확인할 수 있다.
 #
 # Author:
-#    AWEEKJ(a.k.a. MODO)
+#   AWEEKJ(a.k.a. MODO)
 
 module.exports = (robot) ->
   cheerio = require 'cheerio'

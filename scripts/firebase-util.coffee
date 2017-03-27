@@ -1,13 +1,11 @@
 # Description
 #   Firebase를 토큰을 통해 연결해주는 유틸
-#
-# Dependencies:
-#  "firebase": "^2.2.7"
-#  "firebase-token-generator": "^2.0.0"
-#
-# Commands:
 #   Firebase를 사용하고자 하는 곳에서 FirebaseUtil = require './firebase-util' 을 선언하고
 #   fb = new FirebaseUtil(robot, "name")와 같이 사용한다.
+#
+# Dependencies:
+#   "firebase": "^2.2.7"
+#   "firebase-token-generator": "^2.0.0"
 #
 # Author:
 #   river-mountain

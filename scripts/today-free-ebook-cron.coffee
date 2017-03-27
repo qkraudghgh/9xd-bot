@@ -1,14 +1,14 @@
 # Description
-#    한국시간(KST) 기준 오전 9시 30분이 되면 Packtpub의 오늘의 무료책을 알려준다.
-#    (https://www.packtpub.com/packt/offers/free-learning)
+#   한국시간(KST) 기준 오전 9시 30분이 되면 Packtpub의 오늘의 무료책을 알려준다.
+#   (https://www.packtpub.com/packt/offers/free-learning)
 #
 # Dependencies:
-#    "cheerio"
-#    "http"
-#    "cron"
+#   "cheerio"
+#   "http"
+#   "cron"
 #
 # Author:
-#    AWEEKJ(a.k.a. MODO)
+#   AWEEKJ(a.k.a. MODO)
 
 cheerio = require 'cheerio'
 http = require 'http'

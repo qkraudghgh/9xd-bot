@@ -1,6 +1,7 @@
-# author: hunj
 # Description:
 #   #overwatch 채널 내에서 캐릭터의 이름이 거론되면, 그 캐릭터의 대사를 말한다.
+# Author:
+#   hunj
 
 module.exports = (robot) ->
   robot.hear /(류승룡|겐지)/i, (res) ->

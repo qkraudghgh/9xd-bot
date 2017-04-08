@@ -55,13 +55,15 @@ getDust = (msg, geoCode, location) ->
     .get() (err, res, body) ->
       data = JSON.parse(body).data
       aqi = data.aqi
-      if aqi >= 300
+      if aqi > 300
         grade = "위험(환자군 및 민감군에게 응급 조치가 발생되거나, 일반인에게 유해한 영향이 유발될 수 있는 수준)"
-      else if aqi >= 200
+      else if aqi > 200
+        grade = "매우 나쁨(환자군 및 민감군에게 급성 노출시 심각한 영향 유발, 일반인도 약한 영향이 유발될 수 있는 수준)"
+      else if aqo > 150
         grade = "나쁨(환자군 및 민감군[어린이, 노약자 등]에게 유해한 영향 유발, 일반인도 건강상 불쾌감을 경험할 수 있는 수준)"
-      else if aqi <= 150
+      else if aqi > 100
         grade = "민감군 영향(환자군 및 민감군에게 유해한 영향이 유발될 수 있는 수준)"
-      else if aqi <= 100
+      else if aqi > 50
         grade = "보통(환자군에게 만성 노출시 경미한 영향이 유발될 수 있는 수준)"
       else if aqi <= 50
         grade = "좋음(대기오염 관련 질환자군에서도 영향이 유발되지 않을 수준)"

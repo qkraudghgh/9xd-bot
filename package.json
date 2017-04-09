@@ -26,7 +26,8 @@
     "hubot-shipit": "^0.2.0",
     "hubot-slack": "^3.4.2",
     "moment": "^2.13.0",
-    "q": "^1.4.1"
+    "q": "^1.4.1",
+    "request" : "2.75.0"
   },
   "peerDependencies": {
     "hubot": "2.x"

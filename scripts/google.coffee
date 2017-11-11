@@ -33,7 +33,7 @@ getUrl = (node) ->
 parseResults = (dom) ->
   links = Array.from(
     dom.window.document.querySelectorAll('a.l, .r a')
-  ).map(getUrl).filter (elem) -> elem != null
+  ).map(getUrl).map(decodeURIComponent).filter (elem) -> elem != null
   return links
 
 
